@@ -14,7 +14,7 @@ def read(fname):
 
 setup(
     name='django-deprecation',
-    version='0.1.0',
+    version='0.1.1',
     author='Tomás Fox',
     author_email='tomas.c.fox@gmail.com',
     description='Deprecate django fields and make migrations without breaking existing code.',
