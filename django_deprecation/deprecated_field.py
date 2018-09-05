@@ -68,7 +68,7 @@ class DeprecatedField(Field):
         return self.model._meta.get_field(self.field_path)
 
     def contribute_to_class(self, cls, name):
-        super(DeprecatedField, self).contribute_to_class(cls, name, private_only=True)
+        super(DeprecatedField, self).contribute_to_class(cls, name, True)
         setattr(cls, name, self)
 
     def get_attname_column(self):
