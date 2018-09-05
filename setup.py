@@ -20,7 +20,7 @@ setup(
     description='Deprecate django fields and make migrations without breaking existing code.',
     license='MIT',
     keywords='django deprecation deprecated field migrate alias',
-    url='https://github.com/tfoxy/django-deprecation',
+    url='https://github.com/openbox/django-deprecation',
     packages=['django_deprecation'],
     setup_requires=pytest_runner,
     long_description=read('README.md'),

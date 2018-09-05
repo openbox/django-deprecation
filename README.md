@@ -1,5 +1,11 @@
 # django-deprecation
 
+[![build status](https://img.shields.io/travis/openbox/django-deprecation.svg)](https://travis-ci.org/openbox/django-deprecation)
+[![coverage](https://img.shields.io/codecov/c/github/openbox/django-deprecation.svg)](https://codecov.io/gh/openbox/django-deprecation)
+[![PyPI version](https://img.shields.io/pypi/v/django-deprecation.svg)](https://pypi.org/project/django-deprecation/)
+![python version](https://img.shields.io/pypi/pyversions/django-deprecation.svg)
+![django version](https://img.shields.io/pypi/djversions/django-deprecation.svg)
+
 Deprecate django fields and make migrations without breaking existing code.
 
 
@@ -11,6 +17,26 @@ pip install django-deprecation
 
 
 ## Usage
+
+### TL;DR
+
+```py
+# Before:
+class Album(models.Model):
+    name = models.CharField(max_length=50)
+
+
+# After:
+class Album(models.Model):
+    name = DeprecatedField('title')
+    title = models.CharField(max_length=50)
+
+
+assert album.name == album.title
+assert list(Album.objects.filter(name='foo')) == list(Album.objects.filter(title='foo'))
+```
+
+### Long explanation
 
 Let's suppose we have the following models:
 
